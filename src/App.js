@@ -10,12 +10,12 @@ import CategoryContainer from './CategoryContainer';
 
 function App() {
   return (
-    <BrowserRouter basename='/react-app/'>
+    <BrowserRouter basename="/react-app">
       <div className="container">
         <CartContainer />
         <MenuContainer />
         <HeaderContainer />
-        <Route exact path='/react-app/' render={() => <HomePageContainer />} />
+        <Route exact path='/' render={() => <HomePageContainer />} />
         <Route path='/products/:item' render={() => <CategoryContainer />} />
         <Route path='/checkout' render={() => <CheckoutPageContainer />} />
       </div>

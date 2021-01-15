@@ -15,7 +15,7 @@ function App() {
         <CartContainer />
         <MenuContainer />
         <HeaderContainer />
-        <Route exact path='/react-app/' render={() => <HomePageContainer />} />
+        <Route exact path='/react-app' render={() => <HomePageContainer />} />
         <Route path='/products/:item' render={() => <CategoryContainer />} />
         <Route path='/checkout' render={() => <CheckoutPageContainer />} />
       </div>

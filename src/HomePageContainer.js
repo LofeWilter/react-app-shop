@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import HomePage from './HomePage';
 import { FetchProducts } from './reducers/ProductsReducer';
 import { AddToCart } from './reducers/CartReducer';
-import { AutoSlider, NextSlide, PrevSlide } from './reducers/SliderReducer';
+import { AutoSlider, ChangeAuto, NextSlide, PrevSlide } from './reducers/SliderReducer';
 
 
 const mapStateToProps = (state) => {
@@ -17,7 +17,8 @@ const mapDispatchToProps = {
     AddToCart: AddToCart,
     NextSlide: NextSlide,
     PrevSlide: PrevSlide,
-    AutoSlider: AutoSlider
+    AutoSlider: AutoSlider,
+    ChangeAuto: ChangeAuto
 }
 
 const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage)

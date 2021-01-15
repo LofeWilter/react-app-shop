@@ -3,6 +3,7 @@ import Promocode from "../Promocode";
 
 const NEXT_SLIDE = 'NEXT_SLIDE';
 const PREV_SLIDE = 'PREV_SLIDE';
+const SET_AUTO = 'SET_AUTO';
 
 
 let initialState = {
@@ -10,7 +11,8 @@ let initialState = {
         <Promocode />,
         <ConverterAdd />
     ],
-    slideNumber: 0
+    slideNumber: 0,
+    isSliderActive: false
 }
 
 const SliderReducer = (state = initialState, action) => {
@@ -27,6 +29,12 @@ const SliderReducer = (state = initialState, action) => {
                 slideNumber: state.slideNumber === 0 ? state.content.length - 1 : state.slideNumber - 1
             }
         }
+        case 'SET_AUTO' : {
+            return {
+                ...state,
+                isSliderActive: true
+            }
+        }
         default: return state
     }
 }
@@ -40,6 +48,12 @@ export const NextSlide = () => {
 export const PrevSlide = () => {
     return {
         type: PREV_SLIDE
+    }
+}
+
+export const ChangeAuto = () => {
+    return {
+        type: SET_AUTO
     }
 }
 

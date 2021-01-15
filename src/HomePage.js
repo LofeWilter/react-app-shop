@@ -4,11 +4,17 @@ import leftA from './assets/left.png';
 import rightA from './assets/right.png';
 import './HomePage.css';
 
-function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextSlide, AutoSlider}) {
+function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextSlide, AutoSlider, ChangeAuto}) {
 
     useEffect(() => {
         FetchProducts()
-        AutoSlider()
+    }, [])
+
+    useEffect(() => {
+        if (!slider.isSliderActive) {
+            ChangeAuto()
+            AutoSlider()
+        }
     }, [])
     
     return (

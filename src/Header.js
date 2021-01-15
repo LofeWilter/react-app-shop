@@ -16,7 +16,7 @@ const Header = ({ SetMenu, ToggleCart, FetchCategories, state }) => {
     return (
         <header className="header">
             <img src={burger1} className="burger" onClick={() => SetMenu(!state.menu.menuToggler)} />
-            <NavLink to='/' className="logo"><img src={logo} alt="logo" /></NavLink>
+            <NavLink to='/react-app' className="logo"><img src={logo} alt="logo" /></NavLink>
             <ul className="navbar">
                 {state.header.categories.data ? state.header.categories.data.map(item => {   
                     return (

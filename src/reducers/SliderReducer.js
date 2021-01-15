@@ -12,7 +12,8 @@ let initialState = {
         <ConverterAdd />
     ],
     slideNumber: 0,
-    isSliderActive: false
+    isSliderActive: false,
+    count: 0
 }
 
 const SliderReducer = (state = initialState, action) => {
@@ -20,7 +21,8 @@ const SliderReducer = (state = initialState, action) => {
         case 'NEXT_SLIDE': {
             return {
                 ...state,
-                slideNumber: state.slideNumber === state.content.length - 1 ? 0 : state.slideNumber + 1
+                slideNumber: state.slideNumber === state.content.length - 1 ? 0 : state.slideNumber + 1,
+                count: state.count + 1
             }
         }
         case 'PREV_SLIDE': {
@@ -61,7 +63,8 @@ export const AutoSlider = () => {
     return dispatch => {
         setInterval(()=> {
             dispatch(NextSlide())
-        }, 5000)
+        }, 5000);
+        
     }
 }
 

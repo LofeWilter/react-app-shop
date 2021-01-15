@@ -10,7 +10,7 @@ import CategoryContainer from './CategoryContainer';
 
 function App() {
   return (
-    <BrowserRouter basename='/react-app'>
+    <BrowserRouter basename='/react-app/'>
       <div className="container">
         <CartContainer />
         <MenuContainer />

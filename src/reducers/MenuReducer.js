@@ -14,9 +14,6 @@ const MenuReducer = (state = initialState, action) => {
                 document.body.style['overflow-y'] = "scroll";
                 document.body.style.position = '';
             }
-            // action.toggled ?
-            //     document.body.style['overflow-y'] = 'hidden'
-            //     : document.body.style['overflow-y'] = "scroll";
             return {
                 ...state, menuToggler: action.toggled
             }

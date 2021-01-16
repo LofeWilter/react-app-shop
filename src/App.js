@@ -13,7 +13,6 @@ function App() {
   return (
     <Router>
       <div className="container">
-        GAGAGAGAG
         <CartContainer />
         <MenuContainer />
         <HeaderContainer />

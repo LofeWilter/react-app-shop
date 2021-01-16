@@ -41,7 +41,7 @@ function CartModal({ ToggleCart, cart, ChangeItemsInCart, RemoveFromCart, FetchC
                                     {cart.cart.subtotal.formatted_with_symbol}
                                 </span>
                                 <NavLink
-                                    to='/checkout'
+                                    to='/checkout/cart'
                                     className={cart.cart.line_items.length > 0 ? 'kekw' : 'none'}
                                     onClick={() => ToggleCart(!cart.cartToggler)}>
                                     <button className="checkout-btn">Оформить заказ</button>

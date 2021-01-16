@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import HomePageContainer from './HomePageContainer';
 import CheckoutPageContainer from './CheckoutPageContainer';
 import CartContainer from './CartContainer';
@@ -10,16 +11,17 @@ import CategoryContainer from './CategoryContainer';
 
 function App() {
   return (
-    <BrowserRouter basename="/react-app">
+    <Router>
       <div className="container">
+        GAGAGAGAG
         <CartContainer />
         <MenuContainer />
         <HeaderContainer />
         <Route exact path='/' render={() => <HomePageContainer />} />
         <Route path='/products/:item' render={() => <CategoryContainer />} />
-        <Route path='/checkout' render={() => <CheckoutPageContainer />} />
+        <Route path='/checkout/cart' render={() => <CheckoutPageContainer />} />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

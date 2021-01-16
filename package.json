@@ -2,7 +2,7 @@
   "name": "eshop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://LofeWilter.github.io/react-app",
+  "homepage": "https://lofewilter.github.io/react-app",
   "dependencies": {
     "@chec/commerce.js": "^2.3.0-beta2",
     "@testing-library/jest-dom": "^5.11.6",

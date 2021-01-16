@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
-import Product from './Product';
 import leftA from './assets/left.png';
 import rightA from './assets/right.png';
+import loading from './assets/stillLoading.png';
 import './HomePage.css';
 
-function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextSlide, AutoSlider, ChangeAuto}) {
+const Products = React.lazy(() => import('./Products'))
+
+
+function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextSlide, AutoSlider, ChangeAuto }) {
 
     useEffect(() => {
-        FetchProducts()
+        if (!products.allLoaded && Object.keys(products.loadedCategories).length !== 3) {
+            FetchProducts()
+        }
     }, [])
+
 
     useEffect(() => {
         if (!slider.isSliderActive) {
@@ -16,7 +22,7 @@ function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextS
             AutoSlider()
         }
     }, [])
-    
+
     return (
         <div >
             <div className="carousel">
@@ -32,13 +38,13 @@ function HomePage({ products, AddToCart, FetchProducts, slider, PrevSlide, NextS
                     <img src={rightA} alt="right arrow" className="rightA" onClick={NextSlide} />
                 </div>
             </div>
-            <div className="products">
-                {products.products.map(item => {
-                    return (
-                        <Product item={item} key={item.id} toCart={AddToCart} />
-                    )
-                })}
-            </div>
+            {<img src={loading} alt =''/> && products.stillLoading}
+            <React.Suspense fallback={<img src={loading} />}>
+                <Products
+                    products={products.products}
+                    AddToCart={AddToCart}
+                />
+            </React.Suspense>
         </div>
     )
 }

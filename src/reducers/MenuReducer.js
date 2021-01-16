@@ -1,4 +1,3 @@
-
 const MENU_TOGGLER = "MENU_TOGGLER";
 
 let initialState = {
@@ -7,8 +6,17 @@ let initialState = {
 
 const MenuReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "MENU_TOGGLER" : {
-            action.toggled ? document.body.style['overflow-y'] = 'hidden' : document.body.style['overflow-y'] = "scroll";
+        case "MENU_TOGGLER": {
+            if (action.toggled) {
+                document.body.style['overflow-y'] = 'hidden';
+                document.body.style.position = 'fixed';
+            } else {
+                document.body.style['overflow-y'] = "scroll";
+                document.body.style.position = '';
+            }
+            // action.toggled ?
+            //     document.body.style['overflow-y'] = 'hidden'
+            //     : document.body.style['overflow-y'] = "scroll";
             return {
                 ...state, menuToggler: action.toggled
             }

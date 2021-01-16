@@ -6,7 +6,11 @@ import { withRouter } from 'react-router-dom';
 const Category = (props) => {
 
     useEffect(() => {
-        props.FetchCategory(props.match.params.item) 
+        if (!props.products.allLoaded) {
+            if (!props.products.loadedCategories[props.match.params.item]) {
+                props.FetchCategory(props.match.params.item)
+            }
+        }
     }, [props.match.params.item])
 
     return (

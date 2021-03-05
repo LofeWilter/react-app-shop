@@ -18,10 +18,8 @@ const CartReducer = (state = initialState, action) => {
         case 'TOGGLE_CART': {
             if (action.toggled) {
                 document.body.style['overflow-y'] = 'hidden';
-                document.body.style.position = 'fixed';
             } else {
                 document.body.style['overflow-y'] = "scroll";
-                document.body.style.position = '';
             }
             return {
                 ...state, cartToggler: action.toggled
